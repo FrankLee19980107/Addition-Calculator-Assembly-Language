@@ -17,9 +17,9 @@ BLANK      	EQU  	0FFH			//作為給 P0 時 7-sgment Blank
 DEBTIMES   	EQU  	60			//定義每經過 N 個 Delay double-check 的時間
 
 ;-------------------------------主程式-------------------------------
-		ORG	0000H		//程式開始
+		ORG	0000H			//程式開始
 //初始值設定
-		MOV	A,#0FFH		//給定 A 初始值#0FFH
+		MOV	A,#0FFH			//給定 A 初始值#0FFH
 		MOV	P2,A			//把 Port2 初始#0FFH
 		MOV	P3,A			//把 Port3 初始#0FFH
 		MOV	KEYBUF1,A		//把 KEYBUF1 初始#0FFH
@@ -33,7 +33,7 @@ DEBTIMES   	EQU  	60			//定義每經過 N 個 Delay double-check 的時間
 		MOV	ADDBUF+1,#0		//Addbuf+1 設成 0
 		MOV	ADDBUF+2,#0		//Addbuf+2 設成 0
 		MOV	ADDBUF+3,#0		//Addbuf+3 設成 0
-		MOV	DPTR,#LED_TABLE	//初始 DPTR 的位置LABEL(LED_TABLE)的位置
+		MOV	DPTR,#LED_TABLE		//初始 DPTR 的位置LABEL(LED_TABLE)的位置
 //控制顯示 7-segment 循環顯示造成視覺暫留程式
 RESET:
 		MOV	R0,#DISPBUF		//重設 7-segment 顯示的值由第一個開始給
@@ -61,12 +61,12 @@ DISPLAYKEYPATTERN:
 		MOV	R3,DISPBUF		//判斷第四位是否為 blank
 		CJNE	R3,#BLANK,GENERALCASE	//不是 blank 就做一般推移
 		MOV	DISPBUF+3,A		//是 blank/blank/blank/0 所以改第一個值為被按的
-		SJMP	CASENDL		//不做推移
+		SJMP	CASENDL			//不做推移
 //不是 blank/blank/blank/0 的話
 GENERALCASE:
 		MOV   	DISPBUF,DISPBUF+1   	//推移第3個到第4個
 		MOV 	DISPBUF+1,DISPBUF+2 	//推移第2個到第3個
-		MOV	DISPBUF+2,DISPBUF+3    //推移第1個到第2個
+		MOV	DISPBUF+2,DISPBUF+3    	//推移第1個到第2個
 		MOV     DISPBUF+3,A		//推移被按的到第1個
 CASENDL:
 		POP	0E0H			//POP A 因為被 PUSH 進了
@@ -85,16 +85,16 @@ GETKEYCODE:
 		MOV	A,KEYBUF1		//否則處理 Keybuf1(按鍵 0 到 7)
 		MOV	R2,#0			//重設 R2 鍵盤 counter 碼為 0
 NEXTCODE1:
-		JNB	0E0H,GOTKEYCODE	//如果讀到值了就去取得按鍵碼
+		JNB	0E0H,GOTKEYCODE		//如果讀到值了就去取得按鍵碼
 		INC	R2			//否則找下一個做 R2 鍵盤 counter 碼++
 		RR	A			//右旋用以找到下一個
-		CJNE	R2,#8,NEXTCODE1	//如果還沒找到按鍵碼等於 8 就繼續 LOOP 找
+		CJNE	R2,#8,NEXTCODE1		//如果還沒找到按鍵碼等於 8 就繼續 LOOP 找
 		SJMP	EXITGETKEYCODE		//如果找到按鍵碼等於 8 就表示沒有按鍵被案
 NEXTCODE0:
 		MOV	A,KEYBUF2		//處理 Keybuf2(按鍵 8 到 F)
 		MOV	R2,#8			//重設 R2 鍵盤 counter 碼為 8
 NEXTCODE2:
-		JNB	0E0H,GOTKEYCODE	//如果讀到值了就去取得按鍵碼
+		JNB	0E0H,GOTKEYCODE		//如果讀到值了就去取得按鍵碼
 		INC	R2			//否則找下一個做 R2 鍵盤 counter 碼++
 		RR	A			//右旋用以找到下一個
 		CJNE	R2,#16,NEXTCODE2	//如果還沒找到按鍵碼等於 16 就繼續 LOOP 找
@@ -183,7 +183,7 @@ CASEADD:
 		ACALL	RESETCALCULATE		//重設顯示器
 		SJMP	RESETKEY		//重設按鍵
 CASEEQUAL:
-		CJNE	A,#03H,RESETKEY	//如果不是 equal 就重設鍵盤
+		CJNE	A,#03H,RESETKEY		//如果不是 equal 就重設鍵盤
 		ACALL	ADDITION		//叫副程式做相加動作
 		SJMP	RESETKEY		//重設按鍵
 RESETKEY:
@@ -308,9 +308,9 @@ DELAY:
 DELAY0:
 		MOV	R5,#2			//R5 給值 2
 DELAY1:
-		MOV	R6,#100		//R6給值 100
+		MOV	R6,#100			//R6給值 100
 DELAY2:
-		MOV	R7,#100		//R7給值 100
+		MOV	R7,#100			//R7給值 100
 DELAY3:
 		DJNZ	R7,DELAY3		//R7--當 R7 不等於零跳 Delay3
 		DJNZ	R6,DELAY2		//R6--當 R6 不等於零跳 Delay2

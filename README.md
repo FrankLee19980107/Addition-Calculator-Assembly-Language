@@ -6,4 +6,4 @@
 
 <img src = 'https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0000.jpg' width = '300'>
 <img src = 'https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0001.png' width = '300'>
-<img src = 'https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0003.jpg' width = '300'>
+<img src = 'https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0002.jpg' width = '300'>

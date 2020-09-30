@@ -4,6 +4,7 @@
 * Code implement in Calculator.txt
 * More information in Calculator.pdf
 
-![image](https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0000.jpg)
-![image](https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0001.png)
+<img src = 'https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0000.jpg' width = '200'>
+<img src = 'https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0001.png' width = '200'>
+
 ![image](https://github.com/FrankLee19980107/Addition-Calculator-Assembly-Language/blob/master/Image/0002.jpg)

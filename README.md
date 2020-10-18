@@ -1,5 +1,5 @@
 # Addition Calculator (Assembly Language)
-* A midterm project from Yuan-Ze-University 2017 Fall EE386 Microcomputer Experiment
+* A midterm project from Yuan-Ze-University 2017 Fall EE386 Micro-Computer Experiment
 * Use assembly language and implement on MAGAWIN development board MPC82G516
 * Code implement in Calculator.txt
 * More information in Calculator.pdf
